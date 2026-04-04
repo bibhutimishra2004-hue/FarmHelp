@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriTech - Mandi Prices</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/lang.js"></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="brand-title" data-i18n="app_title">🌱 AgriTech</div>
+  <div class="nav-links">
+    <select onchange="setLanguage(this.value)" class="form-input" style="padding: 5px 10px; width: auto; background-color: var(--bg-main);">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+    </select>
+    <button class="btn btn-primary" onclick="goToDashboard()" data-i18n="back_btn">[←] Dashboard</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="glass-card" style="max-width: 600px; margin: 0 auto;">
+    <h2 data-i18n="mandi_query">💰 Mandi Market Query</h2>
+    <p style="margin-bottom: 1.5rem;" data-i18n="mandi_sub">Fetch latest crop prices from APIs</p>
+    
+    <div class="form-group">
+      <label class="form-label" data-i18n="location_label">Location (State/District)</label>
+      <input type="text" id="regionInput" class="form-input" placeholder="e.g. Maharashtra, Pune" />
+    </div>
+
+    <button class="btn btn-primary" onclick="getMandi()" data-i18n="execute_query">Execute Query()</button>
+    
+    <div id="mandi" class="result-box" data-i18n="waiting">
+      > Waiting for input...
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/mandi.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem('agritech_lang');
+    if (saved) document.querySelector('select').value = saved;
+  });
+</script>
+</body>
+</html>

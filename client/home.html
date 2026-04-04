@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriTech - Comprehensive View</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/lang.js"></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="brand-title"><span data-i18n="app_title">🌱 AgriTech</span></div>
+  <div class="nav-links">
+    <select onchange="setLanguage(this.value)" class="form-input" style="padding: 5px 10px; width: auto; background-color: var(--bg-main);">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+    </select>
+    <button class="btn btn-outline" onclick="logout()" data-i18n="logout">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Comprehensive Output</h2>
+  <p>Auto-generated agricultural overview.</p>
+
+  <div class="grid-cards" style="align-items: start;">
+    <div class="glass-card">
+      <h3 data-i18n="weather_title">🌤 Weather Dashboard</h3>
+      <pre id="weather" class="result-box" style="margin-top: 1rem;">> Loading weather module...</pre>
+    </div>
+
+    <div class="glass-card">
+      <h3 data-i18n="mandi_title">💰 Mandi Prices</h3>
+      <div id="mandi" class="result-box" style="margin-top: 1rem;">> Fetching mandi indices...</div>
+    </div>
+  </div>
+
+  <div class="glass-card" style="margin-top: 2rem;">
+    <h3 data-i18n="crop_rec_title">🌾 Crop Recommendation</h3>
+    <button class="btn btn-primary" style="margin: 1rem 0;" onclick="goToRecommend()" data-i18n="query_model">Query Model</button>
+    <pre id="recommend" class="result-box">> Standing by for query parameters...</pre>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/home.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem('agritech_lang');
+    if (saved) document.querySelector('select').value = saved;
+  });
+</script>
+</body>
+</html>

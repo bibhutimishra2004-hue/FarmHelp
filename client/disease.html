@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriTech - Disease Detection</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/lang.js"></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="brand-title" data-i18n="app_title">🌱 AgriTech</div>
+  <div class="nav-links">
+    <select onchange="setLanguage(this.value)" class="form-input" style="padding: 5px 10px; width: auto; background-color: var(--bg-main);">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+    </select>
+    <button class="btn btn-primary" onclick="goToDashboard()" data-i18n="back_btn">[←] Dashboard</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="glass-card" style="max-width: 600px; margin: 0 auto;">
+    <h2 data-i18n="leaf_analysis">🌿 Leaf Image Analysis</h2>
+    <p style="margin-bottom: 2rem;" data-i18n="leaf_sub">Upload an image of a leaf for deep-learning plant disease classification.</p>
+
+    <div class="file-upload-wrapper" onclick="document.getElementById('imageInput').click()">
+      <input type="file" id="imageInput" class="file-upload-input" accept="image/*" />
+    </div>
+    
+    <div id="filePreview" style="margin-top:10px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--accent-dim); text-align: center;">
+      <!-- Selected filename appears here -->
+    </div>
+
+    <button class="btn btn-primary" onclick="uploadImage()" style="margin-top: 1.5rem; width: 100%;" data-i18n="analyze_btn">
+      Analyze Image
+    </button>
+
+    <div id="result" class="result-box" data-i18n="waiting">
+      > Image tensor results will appear here...
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/disease.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem('agritech_lang');
+    if (saved) document.querySelector('select').value = saved;
+  });
+</script>
+</body>
+</html>

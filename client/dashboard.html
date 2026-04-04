@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriTech - Dashboard</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/lang.js"></script>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="brand-title"><span data-i18n="app_title">🌱 AgriTech</span> <span style="font-size:0.9rem; color:var(--accent-glow); margin-left: 10px; font-weight: normal; border: 1px solid var(--border-subtle); padding: 2px 6px; border-radius: 4px;" data-i18n="dashboard">Dashboard</span></div>
+  <div class="nav-links">
+    <select onchange="setLanguage(this.value)" class="form-input" style="padding: 5px 10px; width: auto; background-color: var(--bg-main);">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+    </select>
+    <span style="color:var(--accent-colab); display: flex; align-items: center;"><span class="status-indicator"></span><span id="username" style="margin-left: 5px; color: var(--accent-glow); font-weight: bold;"></span></span>
+    <button class="btn" onclick="logout()" data-i18n="logout">Logout</button>
+  </div>
+</div>
+
+<div class="container">
+  <h2 data-i18n="farmer_modules">Farmer Modules</h2>
+  <p data-i18n="select_module">Select a module to run analysis or view data.</p>
+
+  <div class="grid-cards">
+    <div class="action-card" onclick="goToRecommend()">
+      <div class="action-icon">🌾</div>
+      <div class="action-title" data-i18n="crop_rec_title">Crop Recommendation</div>
+      <p style="text-align: center; margin-top: 8px;" data-i18n="crop_rec_desc">Run crop inference model</p>
+    </div>
+
+    <div class="action-card" onclick="goToMandi()">
+      <div class="action-title" data-i18n="mandi_title">💰 Mandi Prices</div>
+      <p style="text-align: center; margin-top: 8px;" data-i18n="mandi_desc">Fetch latest market rates</p>
+    </div>
+
+    <div class="action-card" onclick="checkWeather()">
+      <div class="action-title" data-i18n="weather_title">🌤 Weather Dashboard</div>
+      <p style="text-align: center; margin-top: 8px;" data-i18n="weather_desc">Live meteorological data</p>
+    </div>
+
+    <div class="action-card" onclick="goToDisease()">
+      <div class="action-title" data-i18n="disease_title">🌿 Disease Detection</div>
+      <p style="text-align: center; margin-top: 8px;" data-i18n="disease_desc">Analyze leaf imagery</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/dashboard.js"></script>
+<script>
+  // Sync the language dropdown to saved language
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem('agritech_lang');
+    if (saved) {
+      document.querySelector('select').value = saved;
+    }
+  });
+</script>
+</body>
+</html>

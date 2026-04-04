@@ -1,0 +1,119 @@
+/* 🌈 Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  /* 🌤️ Default Light Theme */
+  body {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    color: #333;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* 🌙 Dark Theme */
+  body.dark {
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+    color: #fff;
+  }
+  
+  /* 📦 Container */
+  .container {
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  body.dark .container {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* 🌿 Heading */
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+  }
+  
+  /* 📁 File Input */
+  input[type="file"] {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  body.dark input[type="file"] {
+    background: #222;
+    color: white;
+  }
+  
+  /* 🔘 Buttons */
+  button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff7eb3;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    background: #ff4d94;
+  }
+  
+  /* 🌙 Toggle Button */
+  .toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #333;
+  }
+  
+  body.dark .toggle-btn {
+    background: #ffd369;
+    color: black;
+  }
+  
+  /* 📄 Result Box */
+  #result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.7);
+    min-height: 100px;
+    white-space: pre-wrap;
+    animation: fadeIn 1s ease;
+  }
+  
+  body.dark #result {
+    background: rgba(0,0,0,0.5);
+  }
+  
+  /* ✨ Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-8px);}
+  }

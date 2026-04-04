@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriTech - Register</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="js/lang.js"></script>
+</head>
+<body>
+
+<div style="position: absolute; top: 20px; right: 20px;">
+  <select onchange="setLanguage(this.value)" class="form-input" style="padding: 5px 10px; width: auto;">
+    <option value="en">English (EN)</option>
+    <option value="hi">हिंदी (HI)</option>
+  </select>
+</div>
+
+<div class="auth-wrapper">
+  <div class="glass-card auth-card">
+    <div class="auth-header">
+      <div class="brand-title" data-i18n="app_title">🌱 AgriTech</div>
+      <h2 data-i18n="register_title">Create Account</h2>
+      <p data-i18n="register_sub">Sign up to access your farmer dashboard</p>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="username" data-i18n="username">Username</label>
+      <input class="form-input" id="username" type="text" placeholder="Choose a username">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="password" data-i18n="password">Password</label>
+      <input class="form-input" id="password" type="password" placeholder="Create a password">
+    </div>
+
+    <button class="btn btn-primary" onclick="register()" style="width: 100%; margin-top: 1rem;" data-i18n="register_btn">
+      Register
+    </button>
+
+    <div class="auth-footer">
+      <p><a href="index.html" data-i18n="back_login">Back to Login</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>
